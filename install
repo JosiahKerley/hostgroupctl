@@ -1,0 +1,8 @@
+#!/bin/bash
+function prereqfail(){
+  echo 'Cannot install rubygem-hammer_cli_foreman, quiting...'
+  exit 1
+}
+yum install -y rubygem-hammer_cli_foreman jq || apt-get install -y rubygem-hammer_cli_foreman jq || prereqfail
+cat hostgroupctl.py > /usr/bin/hgctl
+chmod +x /usr/bin/hgctl
